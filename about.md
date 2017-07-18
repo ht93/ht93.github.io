@@ -4,12 +4,12 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+PhD in machine learning.
 
-### More Information
+### Interest
 
-A place to include any other types of information that you'd like to include about yourself.
+Too Many. So I decide that it is the time to do blog. 
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+Just contact me in GitHub.
