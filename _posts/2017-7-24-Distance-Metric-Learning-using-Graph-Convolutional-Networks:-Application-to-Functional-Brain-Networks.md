@@ -60,7 +60,7 @@ sites number: 20
 6. **Train and test**: 
     1. 871 total, 720 train, 151 test.
     2. train form 21802 matching and 21398 non-matching graph pairs. test form  5631 matching and 5694 non-matching.
-    3. make sure that all graphs are fed to the network the same number of times to avoid biases.
+    3. all graphs are fed to the network the same number of times to avoid biases.
     4. subjects from all 20 sites are included in both training and test sets
 
 
