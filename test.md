@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About
+title: Test
 ---
 
 I am PhD in machine learning. This is the place for my reading.

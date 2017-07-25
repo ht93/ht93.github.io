@@ -5,11 +5,14 @@ permalink:           pretty
 
 # Setup
 title:               Deep Paper Pool
-tagline:             'hmmm'
-description:         'A paper a day?'
+tagline:             'A paper a day?'
+description:         'Keep reading.'
 url:		     https://ht93.github.io/
 baseurl:             /
-paginate:            5
+plugins: 	     [jekyll-paginate]
+paginate: 	     5
+paginate_path: 	     "page:num"
+
 
 # About/contact
 author:
@@ -20,6 +23,3 @@ author:
 # Custom vars
 version:             1.0.0
 
-plugins: [jekyll-paginate]
-paginate: 5
-paginate_path: "page:num"
