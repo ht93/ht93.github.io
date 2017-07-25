@@ -27,7 +27,8 @@ Submitted: 7 Mar 2017
 > ![](https://wikimedia.org/api/rest_v1/media/math/render/svg/126bc21a36f58717c757e943d05a04d0091feeb2)
 
 ### Methodology:
-1. test $$a^2+b^2=c^2$$
+1. test \\( sin(x^2_l) \\)
+$$a^2+b^2=c^2$$
 
 ### Dataset & preprocess:
 **Dataset**: Autism Brain Imaging Data Exchange (ABIDE)  
