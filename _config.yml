@@ -7,10 +7,10 @@ permalink:           pretty
 title:               Deep Paper Pool
 tagline:             'A paper a day?'
 description:         'Keep reading.'
-url:		     https://ht93.github.io/
+url:                 https://ht93.github.io/
 baseurl:             /
-plugins: 	     [jekyll-paginate]
-paginate: 	     5
+plugins:             [jekyll-paginate]
+paginate: 	         5
 paginate_path: 	     "page:num"
 
 
