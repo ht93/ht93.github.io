@@ -10,8 +10,9 @@ description:         'Keep reading.'
 url:                 https://ht93.github.io/
 baseurl:             /
 plugins:             [jekyll-paginate]
-paginate: 	         5
-paginate_path: 	     "page:num"
+paginate:            5
+paginate_path:       "page:num"
+markdown:            redcarpet
 
 
 # About/contact
