@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Distance Metric Learning using Graph Convolutional Networks: Application to Functional Brain Networks
+title: Distance Metric Learning using Graph Convolutional Networks Application to Functional Brain Networks
 ---
 
 Paper: [arxiv](https://arxiv.org/abs/1703.02161)  
