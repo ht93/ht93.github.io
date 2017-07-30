@@ -12,4 +12,4 @@ Submitted: 30 Jun 2016
 ### Claimed contribution:
 1. Spectral formulation: tools from graph signal processing (GSP) on CNN
 2. Strictly localized filters: filters strictly localized in a ball of radius K
-3. Low computational complexity:  linear complexity w.r.t the input data size n. no Fourier basis, eigenvalue decomposition and store the basis. Only need o store the Laplacian, a sparse matrix of $\|\Epsilon\|$ non-zero values.
+3. Low computational complexity:  linear complexity w.r.t the input data size n. no Fourier basis, eigenvalue decomposition and store the basis. Only need o store the Laplacian, a sparse matrix of $$\|\Epsilon\|$$ non-zero values.
