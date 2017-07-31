@@ -20,7 +20,7 @@ Submitted: 30 Jun 2016
 ### Background Knowledge:
 1. [Hilbert Space](https://en.wikipedia.org/wiki/Hilbert_space#Definition) 
 > A Hilbert space H is a real or complex inner product space that is also a complete metric space with respect to the distance function induced by the inner product.  
-> inner product of functions f and g in $$L^2([-1,1],dy/\sqrt{(1-y^2)})$$ is $$\langle f,g\rangle=\int_{-1}^{1}f(y)\bar{g(y)}\frac{dy}{\sqrt{1-y^2}}$$
+> inner product of functions f and g in $$L^2\bigl([-1,1],dy/\sqrt{(1-y^2)}\bigr)$$ is $$\langle f,g\rangle=\int_{-1}^{1}f(y)\overline{g(y)}\frac{dy}{\sqrt{1-y^2}}$$
 
 2. [Square-integrable function](https://en.wikipedia.org/wiki/Square-integrable_function)
 > In mathematics, a square-integrable function, also called a quadratically integrable function, is a real- or complex-valued measurable function for which the integral of the square of the absolute value is finite.  
