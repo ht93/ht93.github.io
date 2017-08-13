@@ -1,3 +1,8 @@
+---
+layout: post
+title: Spectral Graph Convolutions for Population based Disease Prediction
+---
+
 Paper: [arxiv](https://arxiv.org/abs/1703.03020)  
 Code: [github](https://github.com/parisots/population-gcn) (tensorflow)
 
