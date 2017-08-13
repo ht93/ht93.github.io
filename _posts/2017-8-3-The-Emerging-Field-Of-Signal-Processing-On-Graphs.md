@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The Emerging Field of Signal Processing on Graphs: Extending High Dimensional Data Analysis to Networks and Other Irregular Domains
+title: The Emerging Field of Signal Processing on Graphs
 ---
 
 Paper: [arxiv](https://arxiv.org/abs/1211.0053)  
