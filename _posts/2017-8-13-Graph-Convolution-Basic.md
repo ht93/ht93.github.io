@@ -36,5 +36,39 @@ $$\begin{align}
         |            & \cdots & |
 \end{bmatrix}
 \end{align}$$  
+
 Assume $$0=\lambda_0<\lambda_1\le\lambda_2...\le\lambda_{N-1}:=\lambda_{max}$$, we denote the entire spectrum by $$\sigma(\L):=\{\lambda_0,\lambda_1,...,\lambda_{N-1}\}$$  
+
+# Graph Fourier transform
+Eigenfunction of a linear operator $$D$$ is any non-zero function $$f$$ that $$Df=\lambda f$$, where $$\lambda$$ is a scaling factor called eigenvalue.  
+In one dimensional space, laplacian or laplace operator is $$\Delta$$:
+
+$$\begin{align}
+\Delta f=\nabla^2f=\nabla \nabla f \text{ where } \nabla=(\frac{\partial}{\partial x_1},...,\frac{\partial}{\partial x_n})
+\end{align}$$
+
+For classical Fourier transform:
+
+$$\begin{align}
+\hat f(\xi)=<f,e^{2\pi i\xi t}>=\int_\mathbb{R}f(t)e^{-2\pi i\xi t}dt
+\end{align}$$
+
+where $$e^{2\pi i\xi t}$$ is eigenfunction of $$\Delta$$, since,
+
+$$\begin{align}
+-\Delta (e^{2\pi i\xi t})=-\frac{\partial^2}{\partial t^2}e^{2\pi i\xi t}=(2\pi \xi)^2 e^{2\pi i\xi t} 
+\end{align}$$
+
+For graph, we can define \textbf{graph Fourier transform}  $$\hat f$$ as,
+
+$$\begin{align}
+\hat f(\lambda_l):=<\mathbf{f},\mathbf{u}_l>=\sum_{i=1}^N f(i) u^*_l(i) 
+\end{align}$$
+
+and \textbf{inverse graph Fourier transform} as,
+
+$$\begin{align}
+f(i)=\sum_{l=0}^{N-1} \hat f(\lambda_l) u_l(i) 
+\end{align}$$
+
 
