@@ -53,13 +53,11 @@ where $$Sim(S_v,S_w)$$ is similarity between subjects based on image measures. $
   2. Acquisitions after conversion to AD were not included.
 * **Input feature (vertex)**: volumes of all 138 segmented brain structures
 * **Adjacency matrix (edge and weight)**: 
-  1. $$Sim(S_v,S_w)$$:
-  
+  * $$Sim(S_v,S_w)$$:  
 $$ Sim(S_v,S_w) =
 \begin{cases}
 \lambda,  & \text{if two samples correspond to the same subject ($\lambda >1$)} \\
 1, & \text{otherwise}
 \end{cases} $$  
-  
-  2. $$H=2$$ non-imaging measures: subject's gender and age information
+  * $$H=2$$ non-imaging measures: subject's gender and age information
 * **Result**: seamlessly integrate longitudinal data and provides a significant increase in performance to 77% accuracy for the challenging task of predicting the conver- sion from Mild Cognitive Impairment (MCI) to Alzheimer’s Disease (AD).
