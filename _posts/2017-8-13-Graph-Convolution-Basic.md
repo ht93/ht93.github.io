@@ -59,13 +59,13 @@ $$\begin{align}
 -\Delta (e^{2\pi i\xi t})=-\frac{\partial^2}{\partial t^2}e^{2\pi i\xi t}=(2\pi \xi)^2 e^{2\pi i\xi t} 
 \end{align}$$
 
-For graph, we can define \textbf{graph Fourier transform}  $$\hat f$$ as,
+For graph, we can define **graph Fourier transform**  $$\hat f$$ as,
 
 $$\begin{align}
 \hat f(\lambda_l):=<\mathbf{f},\mathbf{u}_l>=\sum_{i=1}^N f(i) u^*_l(i) 
 \end{align}$$
 
-and \textbf{inverse graph Fourier transform} as,
+and **inverse graph Fourier transform** as,
 
 $$\begin{align}
 f(i)=\sum_{l=0}^{N-1} \hat f(\lambda_l) u_l(i) 
