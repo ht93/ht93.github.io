@@ -37,7 +37,7 @@ $$\begin{align}
 \end{bmatrix}
 \end{align}$$  
 
-Assume $$0=\lambda_0<\lambda_1\le\lambda_2...\le\lambda_{N-1}:=\lambda_{max}$$, we denote the entire spectrum by $$\sigma(\L):=\{\lambda_0,\lambda_1,...,\lambda_{N-1}\}$$  
+Assume $$0=\lambda_0<\lambda_1\le\lambda_2...\le\lambda_{N-1}:=\lambda_{max}$$, we denote the entire spectrum by $$\sigma(\mathcal{L}):=\{\lambda_0,\lambda_1,...,\lambda_{N-1}\}$$  
 
 ### Graph Fourier transform
 Eigenfunction of a linear operator $$D$$ is any non-zero function $$f$$ that $$Df=\lambda f$$, where $$\lambda$$ is a scaling factor called eigenvalue.  
