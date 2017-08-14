@@ -71,6 +71,7 @@ $$ Sim(S_v,S_w) =
 * 10-fold stratified cross validation strategy used.
 * In ADNI, longitudinal acquisitions of the same subject are in the same fold.
 * K = 3 order Chebyshev polynomials.
+
 #### Autism Brain Imaging Data Exchange (ABIDE)
 * **Result**: We show how integrating acquisition information allows to outperform the current state of the art on the whole dataset with a global accuracy of 69.5%.  
 
