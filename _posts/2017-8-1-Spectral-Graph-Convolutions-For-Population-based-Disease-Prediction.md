@@ -13,8 +13,9 @@ Graph Convolutional Networks (GCN) for brain analysis in populations, combining 
 **objective**: to assign to each acquisition, corresponding to a subject and time point, a label l ∈ L describing the corresponding subject’s disease state (e.g. control or diseased).  
 **vertex**: We represent the population as a graph where each subject is associated with an imaging feature vector and corresponds to a graph vertex.   
 **edge**: The graph edge weights are derived from phenotypic data, and encode the pairwise similarity between subjects and the local neighbourhood system.  
-Considering a set of H non-imaging measures $$M={M_h}$ (e.g. subject’s gender and age), the population graph’s adjacency matrix W is defined as follows:  
+Considering a set of H non-imaging measures $$M={M_h}$$ (e.g. subject’s gender and age), the population graph’s adjacency matrix W is defined as follows:  
 $$W(v,w)=Sim(S_v,S_w)\sum_{h=1}^H \rho(M_h(v),M_h(w))$$
+where $$Sim(S_v,S_w)$$
  
 **GCN**: check this paper [Convolutional Neural Networks on Graphs with Fast Localized Spectral Filtering](https://ht93.github.io/2017/07/30/Convolutional-Neural-Networks-On-Graphs-With-Fast-Localized-Spectral-Filtering/)  
 **Training**: This structure is used to train a GCN model on partially labelled graphs, aiming to infer the classes of unlabelled nodes from the node features and pairwise associations between subjects.
