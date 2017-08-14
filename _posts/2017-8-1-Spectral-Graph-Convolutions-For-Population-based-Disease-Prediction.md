@@ -25,7 +25,7 @@ where $$Sim(S_v,S_w)$$ is similarity between subjects based on image measures. $
 0, & \text{otherwise}
 \end{cases} $$  
 
-**GCN**: check this paper [Convolutional Neural Networks on Graphs with Fast Localized Spectral Filtering](https://ht93.github.io/2017/07/30/Convolutional-Neural-Networks-On-Graphs-With-Fast-Localized-Spectral-Filtering/)  
+**GCN**: check [this blog](https://ht93.github.io/2017/08/13/Graph-Convolution-Basic/) this paper [Convolutional Neural Networks on Graphs with Fast Localized Spectral Filtering](https://ht93.github.io/2017/07/30/Convolutional-Neural-Networks-On-Graphs-With-Fast-Localized-Spectral-Filtering/)
 **Training**: This structure is used to train a GCN model on partially labelled graphs, aiming to infer the classes of unlabelled nodes from the node features and pairwise associations between subjects.  
 **Network detail**:
 * ReLU activation after graph convolutional layer ($$max(0,x)$$)
