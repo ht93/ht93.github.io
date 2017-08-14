@@ -20,7 +20,7 @@ $$\begin{align}
 &\mathcal{L}=\mathbf{D}-\mathbf{W} \text{, Non normalized graph laplacian}\\
 &(\mathcal{L} f)(i) = \sum_{j\in N_i} \mathbf{W_{ij}}[f(i)-f(j)]\\
 &\tilde{\mathcal{L}}=\mathbf{D}^{-1/2}\mathcal{L}\mathbf{D}^{-1/2}=\mathbf{I_N}-\mathbf{D}^{-1/2}\mathbf{W}\mathbf{D}^{-1/2} \text{, Normalized graph laplacian}\\
-&(\tilde\mathcal{L} f)(i) = \frac{1}{\sqrt{d_i}}\sum_{j\in N_i} \mathbf{W_{ij}}\bigg[\frac{f(i)}{\sqrt{d_i}}-\frac{f(i)}{\sqrt{d_j}}\bigg]
+&(\tilde{\mathcal{L}} f)(i) = \frac{1}{\sqrt{d_i}}\sum_{j\in N_i} \mathbf{W_{ij}}\bigg[\frac{f(i)}{\sqrt{d_i}}-\frac{f(i)}{\sqrt{d_j}}\bigg]
 \end{align}$$  
 
 Laplacian is a real symmetric matrix.  
