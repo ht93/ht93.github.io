@@ -3,7 +3,7 @@ layout: post
 title: Graph Convolution Basic
 ---
 
-# Graph
+### Graph
 
 $$\begin{align}
 \text{Graph} \ &G=\{\mathcal{V}, \mathcal{E}, \mathbf{W}\} \\
@@ -39,7 +39,7 @@ $$\begin{align}
 
 Assume $$0=\lambda_0<\lambda_1\le\lambda_2...\le\lambda_{N-1}:=\lambda_{max}$$, we denote the entire spectrum by $$\sigma(\L):=\{\lambda_0,\lambda_1,...,\lambda_{N-1}\}$$  
 
-# Graph Fourier transform
+### Graph Fourier transform
 Eigenfunction of a linear operator $$D$$ is any non-zero function $$f$$ that $$Df=\lambda f$$, where $$\lambda$$ is a scaling factor called eigenvalue.  
 In one dimensional space, laplacian or laplace operator is $$\Delta$$:
 
@@ -71,4 +71,77 @@ $$\begin{align}
 f(i)=\sum_{l=0}^{N-1} \hat f(\lambda_l) u_l(i) 
 \end{align}$$
 
+### Graph Spectral Filtering
+In classical signal processing, filter is:
 
+$$\begin{align}
+\hat f_{out} (\xi)=\hat f_{in} (\xi) \hat h(\xi) 
+\end{align}$$
+
+where $$\hat h(\cdot)$$ is transfer function of this filter. By inverse Fourier transform,
+
+$$\begin{align}
+f_{out}(t)&=\int_{\mathbb R} \hat f_{in}(\xi) \hat h(\xi) e^{2\pi i\xi t}d\xi\\
+&= \int_{\mathbb R} f_{in}(\tau)h(t-\tau)d\tau =: (f_{in}*h)(t)
+\end{align}$$
+
+For graph, we define \textbf{graph spectral} (frequency) \textbf{filtering} as,
+
+$$\begin{align}
+\hat f_{out} (\lambda_l)=\hat f_{in} (\lambda_l) \hat h(\lambda_l) 
+\end{align}$$
+
+by inverse graph Fourier transform, 
+
+$$\begin{align}
+f_{out}(i)=\sum_{l=0}^{N-1} \hat f_{in} (\lambda_l) \hat h(\lambda_l) u_l(i)
+\end{align}$$
+
+With some matrix manipulation and orthonormality, we can get:
+
+$$\begin{align}
+\mathbf{f}_{out}=\hat h(\L)\mathbf{f}_{in} \text{, where } \hat h(\L):=\mathbf{U}
+\begin{bmatrix}
+    \hat h(\lambda_0) &        & \mathbf{0} \\[0.3em]
+                      & \ddots &  \\[0.3em]
+    \mathbf{0}        &        & \hat h(\lambda_{N-1})
+\end{bmatrix}
+\mathbf{U}^T
+\end{align}$$
+
+Based on equation (20), we also define (22) or (23) as convolution on graph.
+
+### Chebyshev polynomial expansion
+Note: we are using normalized graph laplacian now.  
+Assume we have a filter $$g_\theta = diag(\theta)$$, parameterized by $$\theta \in \mathbb R^N$$
+
+$$\begin{align}
+y=g_\theta*x=\mathbf{U}g_\theta\mathbf{U}^Tx
+\end{align}$$
+
+In order to calculate this, we need calculate $$\mathbf{U}g_\theta\mathbf{U}^T. ~ (O(N^2))$$  
+To avoid this, we can treat $$g_\theta$$ as a function of $$\mathbf{\Lambda}$$, and approximate it by truncated expansion in terms of Chebyshev polynomial $$T_k(x)$$ up to $$K^{th}$$ order:
+
+$$\begin{align}
+g_{\theta'}(\mathbf\Lambda)\approx\sum_{k=0}^K \theta'_k T_k (\tilde{\mathbf\Lambda})
+\end{align}$$
+
+with rescaled $$\tilde{\mathbf\Lambda} = \frac{2}{\mathbf{\lambda}_{max}}\mathbf{\Lambda}-I_N$$, $$\theta'_k$$ as vector of Chebyshev coefficients, and:
+
+$$\begin{align}
+T_{0}(x)&=1\\T_{1}(x)&=x\\T_{n+1}(x)&=2xT_{n}(x)-T_{n-1}(x).
+\end{align}$$
+
+
+$$\begin{align}
+\mathbf{U}g_{\theta'}(\mathbf\Lambda)\mathbf{U}^T \approx \sum_{k=0}^K \theta'_k \mathbf{U} T_k (\tilde{\mathbf\Lambda}) \mathbf{U}^T = \sum_{k=0}^K \theta'_k T_k (\tilde{\L}) \text{, where } \tilde{\L} = \frac{2}{\mathbf{\lambda}_{max}}\L-I_N
+\end{align}$$
+
+since $$(\mathbf{U}\mathbf{\Lambda}\mathbf{U}^T)^k=\mathbf{U}\mathbf{\Lambda}^k\mathbf{U}^T$$  
+Here we have: 
+
+$$\begin{align}
+g_{\theta'}*x \approx \sum_{k=0}^K \theta'_k T_k (\tilde{\L}) x
+\end{align}$$
+
+Noted this expression is K-localized since it is a $$K^{th}$$ order polynomial of laplacian.
