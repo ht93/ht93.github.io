@@ -15,7 +15,7 @@ Graph Convolutional Networks (GCN) for brain analysis in populations, combining 
 **edge**: The graph edge weights are derived from phenotypic data, and encode the pairwise similarity between subjects and the local neighbourhood system.  
 population graph’s adjacency matrix W is defined as follows:  
 $$W(v,w)=Sim(S_v,S_w)\sum_{h=1}^H \rho(M_h(v),M_h(w))$$  
-where $$Sim(S_v,S_w)$$ is similarity between subjects based on image measures. $$\rho$$ is a measure of distance between phenotypic measures (non-imaging measures). Here is a set of H non-imaging measures $$M={M_h}$$ (e.g. subject’s gender and age.  
+where $$Sim(S_v,S_w)$$ is similarity between subjects based on image measures. $$\rho$$ is a measure of distance between phenotypic measures (non-imaging measures). Here is a set of H non-imaging measures $$M=\{M_h\}$$ (e.g. subject’s gender and age.  
  $$ \rho(M_h(v),M_h(w)) =
 \begin{cases}
 1,  & \text{if $|M_h(v)-M_h(w)|<\theta$} \\
