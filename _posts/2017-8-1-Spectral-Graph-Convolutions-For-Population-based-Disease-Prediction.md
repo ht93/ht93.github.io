@@ -13,10 +13,14 @@ Graph Convolutional Networks (GCN) for brain analysis in populations, combining 
 **objective**: to assign to each acquisition, corresponding to a subject and time point, a label l ∈ L describing the corresponding subject’s disease state (e.g. control or diseased).  
 **vertex**: We represent the population as a graph where each subject is associated with an imaging feature vector and corresponds to a graph vertex.   
 **edge**: The graph edge weights are derived from phenotypic data, and encode the pairwise similarity between subjects and the local neighbourhood system.  
-Considering a set of H non-imaging measures $$M={M_h}$$ (e.g. subject’s gender and age), the population graph’s adjacency matrix W is defined as follows:  
-$$W(v,w)=Sim(S_v,S_w)\sum_{h=1}^H \rho(M_h(v),M_h(w))$$
-where $$Sim(S_v,S_w)$$
- 
+population graph’s adjacency matrix W is defined as follows:  
+$$W(v,w)=Sim(S_v,S_w)\sum_{h=1}^H \rho(M_h(v),M_h(w))$$  
+where $$Sim(S_v,S_w)$$ is similarity between subjects based on image measures. $$\rho$$ is a measure of distance between phenotypic measures (non-imaging measures). Here is a set of H non-imaging measures $$M={M_h}$$ (e.g. subject’s gender and age. 
+ $$ \rho(M_h(v),M_h(w)) =
+\begin{cases}
+1,  & \text{if $|M_h(v)-M_h(w)|<\theta$} \\
+0, & \text{otherwise}
+\end{cases} $$
 **GCN**: check this paper [Convolutional Neural Networks on Graphs with Fast Localized Spectral Filtering](https://ht93.github.io/2017/07/30/Convolutional-Neural-Networks-On-Graphs-With-Fast-Localized-Spectral-Filtering/)  
 **Training**: This structure is used to train a GCN model on partially labelled graphs, aiming to infer the classes of unlabelled nodes from the node features and pairwise associations between subjects.
 
@@ -33,6 +37,7 @@ where $$Sim(S_v,S_w)$$
 * **Input feature**: vectorised functional connectivity matrix. And a [ridge classifier](http://scikit-learn.org/stable/modules/linear_model.html#ridge-regression) is employed to select the most discriminative features from the training set.
 * **Graph**: 
 * **Result**: We show how integrating acquisition information allows to outperform the current state of the art on the whole dataset with a global accuracy of 69.5%.  
+
 #### Alzheimer's Disease Neuroimaging Initiative (ADNI)
 * **Task**: predict whether an MCI patient will convert to AD. 
 * **Objective**: demonstrate the importance of exploiting longitudinal information, which can be easily integrated into our graph structure, to increase performance.
