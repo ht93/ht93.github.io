@@ -100,7 +100,7 @@ f_{out}(i)=\sum_{l=0}^{N-1} \hat f_{in} (\lambda_l) \hat h(\lambda_l) u_l(i)
 With some matrix manipulation and orthonormality, we can get:
 
 $$\begin{align}
-\mathbf{f}_{out}=\hat h(\L)\mathbf{f}_{in} \text{, where } \hat h(\L):=\mathbf{U}
+\mathbf{f}_{out}=\hat h(\mathcal{L})\mathbf{f}_{in} \text{, where } \hat h(\mathcal{L}):=\mathbf{U}
 \begin{bmatrix}
     \hat h(\lambda_0) &        & \mathbf{0} \\[0.3em]
                       & \ddots &  \\[0.3em]
@@ -134,14 +134,14 @@ T_{0}(x)&=1\\T_{1}(x)&=x\\T_{n+1}(x)&=2xT_{n}(x)-T_{n-1}(x).
 
 
 $$\begin{align}
-\mathbf{U}g_{\theta'}(\mathbf\Lambda)\mathbf{U}^T \approx \sum_{k=0}^K \theta'_k \mathbf{U} T_k (\tilde{\mathbf\Lambda}) \mathbf{U}^T = \sum_{k=0}^K \theta'_k T_k (\tilde{\L}) \text{, where } \tilde{\L} = \frac{2}{\mathbf{\lambda}_{max}}\L-I_N
+\mathbf{U}g_{\theta'}(\mathbf\Lambda)\mathbf{U}^T \approx \sum_{k=0}^K \theta'_k \mathbf{U} T_k (\tilde{\mathbf\Lambda}) \mathbf{U}^T = \sum_{k=0}^K \theta'_k T_k (\tilde{\mathcal{L}}) \text{, where } \tilde{\mathcal{L}} = \frac{2}{\mathbf{\lambda}_{max}}\mathcal{L}-I_N
 \end{align}$$
 
 since $$(\mathbf{U}\mathbf{\Lambda}\mathbf{U}^T)^k=\mathbf{U}\mathbf{\Lambda}^k\mathbf{U}^T$$  
 Here we have: 
 
 $$\begin{align}
-g_{\theta'}*x \approx \sum_{k=0}^K \theta'_k T_k (\tilde{\L}) x
+g_{\theta'}*x \approx \sum_{k=0}^K \theta'_k T_k (\tilde{\mathcal{L}}) x
 \end{align}$$
 
 Noted this expression is K-localized since it is a $$K^{th}$$ order polynomial of laplacian.
