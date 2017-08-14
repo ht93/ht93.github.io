@@ -10,7 +10,7 @@ Code: [github](https://github.com/parisots/population-gcn) (tensorflow)
 Graph Convolutional Networks (GCN) for brain analysis in populations, combining imaging and non-imaging data.
 
 ### Network Outline:
-**objective**: to assign to each acquisition, corresponding to a subject and time point, a label l ∈ L describing the corresponding subject’s disease state (e.g. control or diseased).  
+**task**: to assign to each acquisition, corresponding to a subject and time point, a label l ∈ L describing the corresponding subject’s disease state (e.g. control or diseased).  
 **vertex**: We represent the population as a graph where each subject is associated with an imaging feature vector and corresponds to a graph vertex.   
 **edge**: The graph edge weights are derived from phenotypic data, and encode the pairwise similarity between subjects and the local neighbourhood system.  
 population graph’s adjacency matrix W is defined as follows:  
