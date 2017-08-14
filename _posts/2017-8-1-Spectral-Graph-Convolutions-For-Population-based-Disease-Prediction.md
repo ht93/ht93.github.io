@@ -38,8 +38,10 @@ where $$Sim(S_v,S_w)$$ is similarity between subjects based on image measures. $
   2. 20 different sites
   3. Preprocessing pipeline from C-PAC & ROI from Harvard Oxford (HO) atlas, same as [Ruckert2016](https://ht93.github.io/2017/07/24/Distance-Metric-Learning-using-Graph-Convolutional-Networks-Application-to-Functional-Brain-Networks/#dataset--preprocess)
   4. The individual connectivity matrices are estimated by computing the Fisher transformed Pearson’s correlation coefficient between the representative rs-fMRI timeseries of each ROI in the HO atlas.
-* **Input feature**: vectorised functional connectivity matrix. And a [ridge classifier](http://scikit-learn.org/stable/modules/linear_model.html#ridge-regression) is employed to select the most discriminative features from the training set.
-* **Graph**: 
+* **Input feature (vertex)**: vectorised functional connectivity matrix. And a [ridge classifier](http://scikit-learn.org/stable/modules/linear_model.html#ridge-regression) is employed to select the most discriminative features from the training set.
+* **Adjacency matrix (edge and weight)**: 
+  * $$Sim(S_v,S_w)$$ is the correlation distance between the subjects’ rs-fMRI connectivity networks after feature selection.
+  * $$H=2$$ non-imaging measures: subject's gender and acquisition site
 * **Result**: We show how integrating acquisition information allows to outperform the current state of the art on the whole dataset with a global accuracy of 69.5%.  
 
 #### Alzheimer's Disease Neuroimaging Initiative (ADNI)
@@ -49,5 +51,15 @@ where $$Sim(S_v,S_w)$$ is similarity between subjects based on image measures. $
 * **Dataset Detail**:
   1. 540 subjects (1675 samples) with early/late MCI and contained longitudinal T1 MR images, 289 subjects (843 samples) diagnosed as AD
   2. Acquisitions after conversion to AD were not included.
-* **Input feature**: volumes of all 138 segmented brain structures
+* **Input feature (vertex)**: volumes of all 138 segmented brain structures
+* **Adjacency matrix (edge and weight)**: 
+  * $$Sim(S_v,S_w)$$:
+  
+$$ Sim(S_v,S_w) =
+\begin{cases}
+\lambda,  & \text{if two samples correspond to the same subject ($\lambda >1$)} \\
+1, & \text{otherwise}
+\end{cases} $$  
+  
+  * $$H=2$$ non-imaging measures: subject's gender and age information
 * **Result**: seamlessly integrate longitudinal data and provides a significant increase in performance to 77% accuracy for the challenging task of predicting the conver- sion from Mild Cognitive Impairment (MCI) to Alzheimer’s Disease (AD).
