@@ -21,5 +21,5 @@ $$\begin{align}
 &\tilde\L=\mathbf{D}^{-1/2}\L\mathbf{D}^{-1/2}=\mathbf{I_N}-\mathbf{D}^{-1/2}\mathbf{W}\mathbf{D}^{-1/2} \text{, Normalized graph laplacian}\\
 &(\tilde\L f)(i) = \frac{1}{\sqrt{d_i}}\sum_{j\in N_i} \mathbf{W_{ij}}\bigg[\frac{f(i)}{\sqrt{d_i}}-\frac{f(i)}{\sqrt{d_j}}\bigg]
 \end{align}$$  
-Laplacian is a real symmetric matrix. \\
+Laplacian is a real symmetric matrix.  
 It has orthonormal eigenvector as $$\{\mathbf{u}_l\}_{l=0,1,...,N-1}$$ and eigenvalue $$\{\lambda_l\}_{l=0,1,...,N-1}$$.
