@@ -27,8 +27,7 @@ Submitted: 7 Mar 2017
 > ![](https://wikimedia.org/api/rest_v1/media/math/render/svg/126bc21a36f58717c757e943d05a04d0091feeb2)
 
 ### Methodology:
-1. test \\( sin(x^2_l) \\)
-$$a^2+b^2=c^2$$
+[Check this blog](https://ht93.github.io/2017/08/13/Graph-Convolution-Basic/)
 
 ### Dataset & preprocess:
 **Dataset**: Autism Brain Imaging Data Exchange (ABIDE)  
@@ -75,11 +74,6 @@ Sites number: 20
 ### Unsolved Question:
 * An additional l2 regularisation term on the weights of the fully connected layer is introduced to the loss function.
 > [some answer](https://github.com/fchollet/keras/issues/5673) Your question indicates you are confused about how regularization works. L2 regularization is essentially a zero mean isotropic Gaussian prior on weights so it is applied to the weights in the layers you specify. The regularization takes the form of a penalty that is added to the loss function, so they are jointly minimized.
-* Check 0.005 regularization type in code: l2 or not
-* Fig. 2: the meaning of green arrow and orange line
-* Check ROC (discrete curve means sites has less subject?)
 
 ### Personal thought:
-* Figure 2 is not useful as Euclidean distance does not convince me that this question is hard. On the other hand, if you can use Euclidean distance to show that I would think either this question is too easy or your algorithm beat the PCA very well, not this question is very challenging.
 * What is the point of Siamese network? Why not just a classifier with GCN and FC (or maybe the performance is not good in this way?)?
-* 11.9% improvement over PCA/Euclidean is impressive enough?
