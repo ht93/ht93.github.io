@@ -26,12 +26,16 @@ where $$Sim(S_v,S_w)$$ is similarity between subjects based on image measures. $
 \end{cases} $$  
 
 **GCN**: check this paper [Convolutional Neural Networks on Graphs with Fast Localized Spectral Filtering](https://ht93.github.io/2017/07/30/Convolutional-Neural-Networks-On-Graphs-With-Fast-Localized-Spectral-Filtering/)  
+**Training**: This structure is used to train a GCN model on partially labelled graphs, aiming to infer the classes of unlabelled nodes from the node features and pairwise associations between subjects.  
 **Network detail**:
 * ReLU activation after graph convolutional layer ($$max(0,x)$$)
-* Softmax activation in final layer $$\sigma (\mathbf {z} )_{j}={\frac {e^{z_{j}}}{\sum _{k=1}^{K}e^{z_{k}}}}$$  
-**Training**: This structure is used to train a GCN model on partially labelled graphs, aiming to infer the classes of unlabelled nodes from the node features and pairwise associations between subjects.
+* Softmax activation in final layer $$\sigma (\mathbf {z} )_{j}={\frac {e^{z_{j}}}{\sum _{k=1}^{K}e^{z_{k}}}}$$
+* Loss: [cross-entropy](https://en.wikipedia.org/wiki/Cross_entropy)
+* Unlabelled nodes are then assigned the labels maximising the softmax output.
+* Dropout
+* l2 regularisation
 
-### Detail & Result:
+### Dataset Detail:
 #### Autism Brain Imaging Data Exchange (ABIDE)
 * **Task**: classify subjects healthy or suffering from Autism Spectrum Disorders (ASD).
 * **Objective**: exploit the acquisition information which can strongly affect the comparability of subjects.
@@ -45,7 +49,6 @@ where $$Sim(S_v,S_w)$$ is similarity between subjects based on image measures. $
 * **Adjacency matrix (edge and weight)**: 
   * $$Sim(S_v,S_w)$$ is the correlation distance between the subjects’ rs-fMRI connectivity networks after feature selection.
   * $$H=2$$ non-imaging measures: subject's gender and acquisition site
-* **Result**: We show how integrating acquisition information allows to outperform the current state of the art on the whole dataset with a global accuracy of 69.5%.  
 
 #### Alzheimer's Disease Neuroimaging Initiative (ADNI)
 * **Task**: predict whether an MCI patient will convert to AD. 
@@ -63,4 +66,13 @@ $$ Sim(S_v,S_w) =
 1, & \text{otherwise}
 \end{cases} $$  
   * $$H=2$$ non-imaging measures: subject's gender and age information
-* **Result**: seamlessly integrate longitudinal data and provides a significant increase in performance to 77% accuracy for the challenging task of predicting the conver- sion from Mild Cognitive Impairment (MCI) to Alzheimer’s Disease (AD).
+
+### Results
+* 10-fold stratified cross validation strategy used.
+* In ADNI, longitudinal acquisitions of the same subject are in the same fold.
+* K = 3 order Chebyshev polynomials.
+#### Autism Brain Imaging Data Exchange (ABIDE)
+* **Result**: We show how integrating acquisition information allows to outperform the current state of the art on the whole dataset with a global accuracy of 69.5%.  
+
+#### Alzheimer's Disease Neuroimaging Initiative (ADNI)
+* **Result**: an average accuracy of 77% on par with state of the art results, corresponding to a 10% increase over a standard linear classifier.
