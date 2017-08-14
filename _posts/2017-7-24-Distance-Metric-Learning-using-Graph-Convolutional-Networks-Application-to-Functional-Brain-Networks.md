@@ -70,6 +70,9 @@ Sites number: 20
     3. all graphs are fed to the network the same number of times to avoid biases.
     4. subjects from all 20 sites are included in both training and test sets
 
+### Results:
+In order to demonstrate the learned metric's ability to facilitate a subject classification task (ASD vs control), we use a simple
+k-nn classifier with k = 3 based the estimated distances. Improvement in classification scores reaches 11.9% on the total test set and up to 40% for individual sites (Compared with PCA/Euclidean distance).
 
 ### Unsolved Question:
 * An additional l2 regularisation term on the weights of the fully connected layer is introduced to the loss function.
