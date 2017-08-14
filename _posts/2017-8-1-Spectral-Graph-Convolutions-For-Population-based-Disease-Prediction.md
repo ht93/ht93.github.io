@@ -10,9 +10,9 @@ Code: [github](https://github.com/parisots/population-gcn) (tensorflow)
 Graph Convolutional Networks (GCN) for brain analysis in populations, combining imaging and non-imaging data.
 
 ### Network Outline:
-**task**: to assign to each acquisition, corresponding to a subject and time point, a label l ∈ L describing the corresponding subject’s disease state (e.g. control or diseased).  
-**vertex**: We represent the population as a graph where each subject is associated with an imaging feature vector and corresponds to a graph vertex.   
-**edge**: The graph edge weights are derived from phenotypic data, and encode the pairwise similarity between subjects and the local neighbourhood system.  
+**Task**: to assign to each acquisition, corresponding to a subject and time point, a label l ∈ L describing the corresponding subject’s disease state (e.g. control or diseased).  
+**Vertex**: We represent the population as a graph where each subject is associated with an imaging feature vector and corresponds to a graph vertex.   
+**Edge**: The graph edge weights are derived from phenotypic data, and encode the pairwise similarity between subjects and the local neighbourhood system.  
 population graph’s adjacency matrix W is defined as follows:  
 
 $$W(v,w)=Sim(S_v,S_w)\sum_{h=1}^H \rho(M_h(v),M_h(w))$$  
@@ -69,8 +69,8 @@ $$ Sim(S_v,S_w) =
 
 ### Results
 * 10-fold stratified cross validation strategy used.
-* In ADNI, longitudinal acquisitions of the same subject are in the same fold.
 * K = 3 order Chebyshev polynomials.
+* In ADNI, longitudinal acquisitions of the same subject are in the same fold.
 
 #### Autism Brain Imaging Data Exchange (ABIDE)
 * **Result**: We show how integrating acquisition information allows to outperform the current state of the art on the whole dataset with a global accuracy of 69.5%.  
