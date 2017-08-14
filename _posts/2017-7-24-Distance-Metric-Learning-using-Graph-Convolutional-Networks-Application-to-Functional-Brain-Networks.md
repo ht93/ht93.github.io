@@ -49,8 +49,9 @@ After pipeline, they extract the mean time series for a set of regions from the 
 Subjects number: N = 871 
 ASD disease: 403 
 Healthy controls: 468 
+Sites number: 20
 (from different imaging sites, 871 met the imaging quality and phenotypic information criteria)
-sites number: 20
+
 ```
 
 ### Network detail:
@@ -58,8 +59,9 @@ sites number: 20
     1. 2 layers with 64 features (shared in Siamese network)
     2. K=3, convolution takes input at most K steps away from a node.
 2. **FC**:
-    1. A binary feature is introduced at the FC layer indicating whether the subject pair were scanned at the same site or not.
-    2. Dropout 0.2 on FC
+    1. One output with Sigmoid activation $${\displaystyle S(x)={\frac {1}{1+e^{-x}}}={\frac {e^{x}}{e^{x}+1}}.}$$
+    2. A binary feature is introduced at the FC layer indicating whether the subject pair were scanned at the same site or not.
+    3. Dropout 0.2 on FC
 3. **Adam optimizer**: 0.001 learning rate and 0.005 regularization (weight decay __probably l2 (Need to check)__)
 4. **Loss function**: margin m=0.6, weight lambda=0.35
 5. **mini-batch**: 200
