@@ -61,7 +61,7 @@ Sites number: 20
     1. One output with Sigmoid activation $${\displaystyle S(x)={\frac {1}{1+e^{-x}}}={\frac {e^{x}}{e^{x}+1}}.}$$
     2. A binary feature is introduced at the FC layer indicating whether the subject pair were scanned at the same site or not.
     3. Dropout 0.2 on FC
-3. **Adam optimizer**: 0.001 learning rate and 0.005 regularization (weight decay __probably l2 (Need to check)__)
+3. **Adam optimizer**: 0.001 learning rate and 0.005 regularization
 4. **Loss function**: margin m=0.6, weight lambda=0.35
 5. **mini-batch**: 200
 6. **Train and test**: 
