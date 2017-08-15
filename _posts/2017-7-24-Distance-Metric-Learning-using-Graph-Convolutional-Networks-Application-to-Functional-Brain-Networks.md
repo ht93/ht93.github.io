@@ -4,6 +4,7 @@ title: Distance Metric Learning using Graph Convolutional Networks Application t
 ---
 
 Paper: [arxiv](https://arxiv.org/abs/1703.02161)  
+Code: [github](https://github.com/sk1712/gcn_metric_learning) (tensorflow)
 Submitted: 7 Mar 2017
 
 ### Key Idea:
@@ -30,8 +31,8 @@ Submitted: 7 Mar 2017
 [Check this blog](https://ht93.github.io/2017/08/13/Graph-Convolution-Basic/)
 
 ### Dataset & preprocess:
-**Dataset**: Autism Brain Imaging Data Exchange (ABIDE)  
-**Preprocess pipeling**: Configurable Pipeline for the Analysis of Connectomes (C-PAC)  
+* **Dataset**: Autism Brain Imaging Data Exchange (ABIDE)  
+* **Preprocess pipeling**: Configurable Pipeline for the Analysis of Connectomes (C-PAC)  
 ```
 Including:
 * skull striping
@@ -42,8 +43,8 @@ Including:
 * band-pass filtering (0.01-0.1Hz)
 * registration of fMRI images to standard anatomical space (MNI152)
 ```
-After pipeline, they extract the mean time series for a set of regions from the Harvard Oxford (HO) atlas comprising R = 110 cortical and subcortical ROIs and normalise them to zero mean and unit variance.  
-**Number**:
+    * After this, they extract the mean time series for a set of regions from the Harvard Oxford (HO) atlas comprising R = 110 cortical and subcortical ROIs and normalise them to zero mean and unit variance.  
+* **Number**:
 ```
 Subjects number: N = 871 
 ASD disease: 403 
@@ -54,7 +55,15 @@ Sites number: 20
 ```
 
 ### Network detail:
-* Network Structure
+* **Task**: measure the similarity between two graph
+* **Graph**:
+    * **Vertex**: Each ROI is represent by a node $$\mathcal{v}_i\in\mathcal{V}$$
+    * **Input feature**: for each ROI, the input feature is the corresponding row of correlation matrix for that ROI.
+    * **Edge & weight**: 
+        * In **their paper**, they claim they use $$e_{ij}=d(v_i,v_j)=\sqrt{||v_i-v_j||^2}$$
+        * 
+        
+* **Network Structure**:
     1. **CNN**:
         1. 2 layers with 64 features (shared in Siamese network)
         2. K=3, convolution takes input at most K steps away from a node.
@@ -62,10 +71,15 @@ Sites number: 20
         1. One output with Sigmoid activation $${\displaystyle S(x)={\frac {1}{1+e^{-x}}}={\frac {e^{x}}{e^{x}+1}}.}$$
         2. A binary feature is introduced at the FC layer indicating whether the subject pair were scanned at the same site or not.
         3. Dropout 0.2 on FC
-3. **Adam optimizer**: 0.001 learning rate and 0.005 regularization
-4. **Loss function**: margin m=0.6, weight lambda=0.35
-5. **mini-batch**: 200
-6. **Train and test**: 
+* **Loss function**:
+
+$$$$
+
+* **Network detail**:
+    * **Adam optimizer**: 0.001 learning rate and 0.005 regularization
+    * **Loss function**: margin m=0.6, weight lambda=0.35
+    * **mini-batch**: 200
+* **Train and test**: 
     1. 871 total, 720 train, 151 test.
     2. train form 21802 matching and 21398 non-matching graph pairs. test form  5631 matching and 5694 non-matching.
     3. all graphs are fed to the network the same number of times to avoid biases.
