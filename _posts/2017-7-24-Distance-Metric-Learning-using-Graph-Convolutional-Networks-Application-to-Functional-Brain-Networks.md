@@ -96,9 +96,5 @@ It maximises the mean similarity $$\mu^+$$ between embeddings belonging to the s
 In order to demonstrate the learned metric's ability to facilitate a subject classification task (ASD vs control), we use a simple
 k-nn classifier with k = 3 based the estimated distances. Improvement in classification scores reaches 11.9% on the total test set and up to 40% for individual sites (Compared with PCA/Euclidean distance).
 
-### Unsolved Question:
-* An additional l2 regularisation term on the weights of the fully connected layer is introduced to the loss function.
-> [some answer](https://github.com/fchollet/keras/issues/5673) Your question indicates you are confused about how regularization works. L2 regularization is essentially a zero mean isotropic Gaussian prior on weights so it is applied to the weights in the layers you specify. The regularization takes the form of a penalty that is added to the loss function, so they are jointly minimized.
-
 ### Personal thought:
 * What is the point of Siamese network? Why not just a classifier with GCN and FC (or maybe the performance is not good in this way?)?
