@@ -81,6 +81,7 @@ Submitted: 7 Mar 2017
 
 $$J^g=(\sigma^{2+}+\sigma^{2-})+\lambda max(0,m-(\mu^+-\mu^-))$$
 
+It maximises the mean similarity $$\mu^+$$ between embeddings belonging to the same class, minimises the mean similarity between embeddings belonging to different classes $$\mu^-$$. And minimises the variance of pairwise similarities for both matching $$\sigma^{2+}$$ and non-matching $$\sigma^{2-}$$ pairs of graphs.  
 * **Network detail**:
     * **Adam optimizer**: 0.001 learning rate and 0.005 regularization
     * **Loss function**: margin m=0.6, weight lambda=0.35
