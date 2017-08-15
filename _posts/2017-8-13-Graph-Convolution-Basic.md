@@ -85,7 +85,7 @@ f_{out}(t)&=\int_{\mathbb R} \hat f_{in}(\xi) \hat h(\xi) e^{2\pi i\xi t}d\xi\\
 &= \int_{\mathbb R} f_{in}(\tau)h(t-\tau)d\tau =: (f_{in}*h)(t)
 \end{align}$$
 
-For graph, we define \textbf{graph spectral} (frequency) \textbf{filtering} as,
+For graph, we define **graph spectral** (frequency) **filtering** as,
 
 $$\begin{align}
 \hat f_{out} (\lambda_l)=\hat f_{in} (\lambda_l) \hat h(\lambda_l) 
