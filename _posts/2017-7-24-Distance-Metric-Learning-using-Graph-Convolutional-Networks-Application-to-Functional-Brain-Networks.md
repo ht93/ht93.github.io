@@ -47,7 +47,10 @@ Submitted: 7 Mar 2017
   </code>
 </pre>
 
-* After this, they extract the mean time series for a set of regions from the Harvard Oxford (HO) atlas comprising R = 110 cortical and subcortical ROIs and normalise them to zero mean and unit variance.  
+* **ROI**: 
+  * Harvard Oxford (HO) atlas comprising R = 110 cortical and subcortical ROIs
+  * extract the mean time series for ROI 
+  * normalised to zero mean and unit variance.  
 * **Number**:
 
 <pre>
