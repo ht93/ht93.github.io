@@ -61,7 +61,7 @@ Sites number: 20
     * **Input feature**: for each ROI, the input feature is the corresponding row of correlation matrix for that ROI.
     * **Edge & weight**: 
         * In **their paper**, they claim that they use $$e_{ij}=d(v_i,v_j)=\sqrt{||v_i-v_j||^2}$$ for weight
-        * In **their code**, they used $$W_{ij} \begin{cases} \exp(-\frac{[dist(i,j)]^2}{2\theta^2}), & \text{if $dist(i,j)\le\mathcal{k}$} \ 0, & \text{otherwise} \end{cases}
+        * In **their code**, they used $$W_{ij} = \begin{cases} \exp(-\frac{[dist(i,j)]^2}{2\theta^2}), & \text{if $dist(i,j)\le\mathcal{k}$} \ 0, & \text{otherwise} \end{cases}$$ for weight
         
 * **Network Structure**:
     1. **CNN**:
