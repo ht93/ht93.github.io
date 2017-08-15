@@ -4,7 +4,7 @@ title: Distance Metric Learning using Graph Convolutional Networks Application t
 ---
 
 Paper: [arxiv](https://arxiv.org/abs/1703.02161)  
-Code: [github](https://github.com/sk1712/gcn_metric_learning) (tensorflow)
+Code: [github](https://github.com/sk1712/gcn_metric_learning) (tensorflow)  
 Submitted: 7 Mar 2017
 
 ### Key Idea:
@@ -44,6 +44,18 @@ Including:
 * band-pass filtering (0.01-0.1Hz)
 * registration of fMRI images to standard anatomical space (MNI152)
 ```
+<pre>
+  <code class="markdown">
+    Including:
+      * skull striping
+      * slice timing correction
+      * motion correction
+      * global mean intensity normalisation 
+      * nuisance signal regression 
+      * band-pass filtering (0.01-0.1Hz)
+      * registration of fMRI images to standard anatomical space (MNI152)
+  </code>
+</pre>
 
 * After this, they extract the mean time series for a set of regions from the Harvard Oxford (HO) atlas comprising R = 110 cortical and subcortical ROIs and normalise them to zero mean and unit variance.  
 * **Number**:
