@@ -45,7 +45,7 @@ Including:
 * registration of fMRI images to standard anatomical space (MNI152)
 ```
 
-    * After this, they extract the mean time series for a set of regions from the Harvard Oxford (HO) atlas comprising R = 110 cortical and subcortical ROIs and normalise them to zero mean and unit variance.  
+* After this, they extract the mean time series for a set of regions from the Harvard Oxford (HO) atlas comprising R = 110 cortical and subcortical ROIs and normalise them to zero mean and unit variance.  
 * **Number**:
 
 ```
