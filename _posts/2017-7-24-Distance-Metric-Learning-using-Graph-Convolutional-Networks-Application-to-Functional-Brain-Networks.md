@@ -54,13 +54,14 @@ Sites number: 20
 ```
 
 ### Network detail:
-1. **CNN**:
-    1. 2 layers with 64 features (shared in Siamese network)
-    2. K=3, convolution takes input at most K steps away from a node.
-2. **FC**:
-    1. One output with Sigmoid activation $${\displaystyle S(x)={\frac {1}{1+e^{-x}}}={\frac {e^{x}}{e^{x}+1}}.}$$
-    2. A binary feature is introduced at the FC layer indicating whether the subject pair were scanned at the same site or not.
-    3. Dropout 0.2 on FC
+* Network Structure
+    1. **CNN**:
+        1. 2 layers with 64 features (shared in Siamese network)
+        2. K=3, convolution takes input at most K steps away from a node.
+    2. **FC**:
+        1. One output with Sigmoid activation $${\displaystyle S(x)={\frac {1}{1+e^{-x}}}={\frac {e^{x}}{e^{x}+1}}.}$$
+        2. A binary feature is introduced at the FC layer indicating whether the subject pair were scanned at the same site or not.
+        3. Dropout 0.2 on FC
 3. **Adam optimizer**: 0.001 learning rate and 0.005 regularization
 4. **Loss function**: margin m=0.6, weight lambda=0.35
 5. **mini-batch**: 200
