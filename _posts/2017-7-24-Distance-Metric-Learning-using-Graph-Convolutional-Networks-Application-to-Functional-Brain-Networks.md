@@ -73,7 +73,7 @@ Sites number: 20
         3. Dropout 0.2 on FC
 * **Loss function**:
 
-$$$$
+$$J^g=(\sigma^{2+}+\sigma^{2-})+\lambda max(0,m-(\mu^+-\mu^-))$$
 
 * **Network detail**:
     * **Adam optimizer**: 0.001 learning rate and 0.005 regularization
