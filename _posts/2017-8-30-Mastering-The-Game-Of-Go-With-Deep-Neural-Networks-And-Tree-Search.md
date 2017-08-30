@@ -14,8 +14,8 @@ We introduce a new approach to computer Go that uses ‘value networks’ to eva
 
 
 ### Previous approach:
-* Depth of the search may be reduced by position evaluation: truncating the search tree at state s and replacing the subtree below s by an approximate value function $$v(s)\approxv^*(s)$$ that predicts the outcome from state s.
-* The breadth of the search may be reduced by sampling actions from a policy p(a|s) that is a probability distribution over possible moves a in position s.
+* Depth of the search may be reduced by position evaluation: truncating the search tree at state s and replacing the subtree below s by an approximate value function $$v(s)\approx v^*(s)$$ that predicts the outcome from state s.
+* The breadth of the search may be reduced by sampling actions from a policy $$p(a|s)$$ that is a probability distribution over possible moves a in position s.
 * Monte Carlo tree search (MCTS) uses Monte Carlo rollouts to estimate the value of each state in a search tree. 
 * **However, prior work has been limited to shallow policies or value functions based on a linear combination of input features.**
 
