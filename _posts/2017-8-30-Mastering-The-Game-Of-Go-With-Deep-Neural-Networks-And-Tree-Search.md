@@ -47,7 +47,7 @@ We introduce a new approach to computer Go that uses ‘value networks’ to eva
 * Training procedure: 
     1. RL policy network weights $$\rho$$ is initialized to the same values of SL policy network, $$\rho=\epsilon$$.
     2. play GO games between the current policy network $$p_{\rho}$$ and a randomly selected previous iteration of the policy network.
-    3. At the end of the game, update the network for all previous move $$p_{\rho}(a_t\vert s_t)$$ where t=1:T by $$\Delta\rho\propto\frac{\partial \log p_{\rho}(a_t\vert s_t)}{\partial\rho}z_t$$ where $$z_t$$ is outcome of the game (+1 for winning, -1 for losing).
+    3. At the end of the game, update the network for all previous move $$p_{\rho}(a_t\vert s_t)$$ where t=1:T by $$\Delta\rho\propto\frac{\partial \log p_{\rho}(a_t\vert s_t)}{\partial\rho}z_t$$ where $$z_t$$ is outcome of the game (+1 for winning, -1 for losing).
 * Performance: 80% winning rate against SL policy network, 85% against strongest open-source Go program Pachi (previous state-of-art supervised CNN only got 11% wining rate against Pachi)
 
 
