@@ -15,7 +15,7 @@ We introduce a new approach to computer Go that uses ‘value networks’ to eva
 
 ### Previous approach:
 * Depth of the search may be reduced by position evaluation: truncating the search tree at state s and replacing the subtree below s by an approximate value function $$v(s)\approx v^*(s)$$ that predicts the outcome from state s.
-* The breadth of the search may be reduced by sampling actions from a policy $$p(a\|s)$$ that is a probability distribution over possible moves a in position s.
+* The breadth of the search may be reduced by sampling actions from a policy $$p(a\vert s)$$ that is a probability distribution over possible moves a in position s.
 * Monte Carlo tree search (MCTS) uses Monte Carlo rollouts to estimate the value of each state in a search tree. 
 * **However, prior work has been limited to shallow policies or value functions based on a linear combination of input features.**
 
@@ -37,6 +37,17 @@ We introduce a new approach to computer Go that uses ‘value networks’ to eva
 * Structure: formed by Convolutional layer and rectifier nonlinearities, softmax as final output.
 * Detailed network: 13 layer
 * Data: 30 million state-action pairs from KGS Go server.
-* Result: `57.0%` using all input features, `55.7%` using only raw board position and move history as inputs.
+* Performance: `57.0%` using all input features, `55.7%` using only raw board position and move history as inputs.
 * Time consumption: `3ms`
-* Extra: a faster rollout policy $$p_{\pi}(a\|s)$$ with `24.2%` and `$$2\mu s$$`
+* Extra: a faster rollout policy $$p_{\pi}(a\vert s)$$ with `24.2%` and $$2\mu s$$
+
+### Reinforcement Learning (RL) policy network
+* Objective: improving the policy network by policy gradient reinforcement learning (RL)
+* Network: RL policy network $$p_{\rho}$$ is identical in structure to SL policy network
+* Training procedure: 
+    1. RL policy network weights $$\rho$$ is initialized to the same values of SL policy network, $$\rho=\epsilon$$.
+    2. play GO games between the current policy network $$p_{\rho}$$ and a randomly selected previous iteration of the policy network.
+    3. At the end of the game, update the network for all previous move $$p_{\rho}(a_t\vert s_t)$$ where t=1:T by $$\Delta\rho\propto\frac{\partial \log p_{\rho}(a_t\vert s_t)}{\partial\rho}z_t$$ where $$z_t$$ is outcome of the game (+1 for winning, -1 for losing).
+* Performance: 80% winning rate against SL policy network, 85% against strongest open-source Go program Pachi (previous state-of-art supervised CNN only got 11% wining rate against Pachi)
+
+
