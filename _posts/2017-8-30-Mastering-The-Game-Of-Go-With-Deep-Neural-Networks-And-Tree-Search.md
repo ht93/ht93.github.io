@@ -64,9 +64,9 @@ We introduce a new approach to computer Go that uses ‘value networks’ to eva
 * Objective: Determine next move action
 * Input: state `s`
 * Output: estimated optimal move `a`
-* Algorithm: The network would run multiple times of simulation for the same input state `s`. The simulation is traversing the tree from the root state. For one simulation (Figure 3):
+* Algorithm: The network would run multiple times of simulation for the same input state `s`. The simulation is traversing the tree from the root state (input state `s`). For one simulation (Figure 3):
     1. For the node with children, branch to the child that $$a_t=argmax_a(Q(s_t,a)+u(s_t,a))$$ where $$u(s_t,a))\propto\frac{P(s,a)}{1+N(s,a)}$$
-    2. FOr the leaf node, it may be expanded by SL policy network $$p_{\epsilon}$$ and the output probabilities are stored as prior probabilities P for each action.
+    2. For the leaf node, it may be expanded by SL policy network $$p_{\epsilon}$$ and the output probabilities are stored as prior probabilities P for each action.
     3. At the end of a simulation, the leaf node is evaluated in two ways: using the value network vθ; and by running a rollout to the end of the game with the fast rollout policy $$p_{\pi}$$. The outcome is a leaf function $$V(s_L)=(1-\lambda)v_\theta(s_L)+\lambda(z_L)$$.
     4. Update action values $$Q(s,a)=\frac{1}{N(s,a)}\sum_{i=1}^n1(s,a,i)V(s_L^i)$$ where $$N(s,a)=\sum_{i=1}^n1(s,a,i)$$ ($$1(s,a,i)$$ indicates whether an edge (s, a) was traversed during the ith simulation. $$s_L^i$$ is the leaf node from the ith simulation.)
     
