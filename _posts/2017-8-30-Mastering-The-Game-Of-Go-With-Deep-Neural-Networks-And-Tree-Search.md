@@ -11,6 +11,7 @@ We introduce a new approach to computer Go that uses ‘value networks’ to eva
 
 ### Background knowledge:
 * [Ladder (Go terminology)](https://en.wikipedia.org/wiki/Ladder_(Go))
+* [Agresti–Coull interval](https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval#Agresti.E2.80.93Coull_interval)
 
 
 ### Previous approach:
@@ -70,4 +71,12 @@ We introduce a new approach to computer Go that uses ‘value networks’ to eva
     3. At the end of a simulation, the leaf node is evaluated in two ways: using the value network $$v_\theta$$; and by running a rollout to the end of the game with the fast rollout policy $$p_{\pi}$$. The outcome is a leaf function $$V(s_L)=(1-\lambda)v_\theta(s_L)+\lambda(z_L)$$.
     4. Update action values $$Q(s,a)=\frac{1}{N(s,a)}\sum_{i=1}^n1(s,a,i)V(s_L^i)$$ where $$N(s,a)=\sum_{i=1}^n1(s,a,i)$$ ($$1(s,a,i)$$ indicates whether an edge (s, a) was traversed during the ith simulation. $$s_L^i$$ is the leaf node from the ith simulation.)
     
+### Performance
+* Against serveral other programs:
+    * 5s computation time per move
+    * AlphaGo (single-machine) wining 494 out of 495 games
+    * Four handicap stones: AlphaGo win 77%, 86% and 99% against Crazy stones, Zen and Pachi.
+    * AlphaGo (distributed) win 100% against other programs and 77% against AlphaGo (single-machine)
+* Variants of AlphaGo that evaluation postition using just value network or just rollouts was tested, and the mixed evaluation give the best results.
+* Against professional player Fan Hui: AlphaGo won 5 games to 0
 
