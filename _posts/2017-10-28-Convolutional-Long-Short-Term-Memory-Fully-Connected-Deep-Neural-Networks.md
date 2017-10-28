@@ -13,6 +13,10 @@ We take advantage of the complementarity of CNNs, LSTMs and DNNs by combining th
 * [LSTMP - LSTM with Recurrent Projection Layer](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/43905.pdf):  
     > By setting n_r < n_c we can increase the model memory (n_c) and still be able to control the number of parameters in the recurrent connections and output layer. n_r is the number of units in the recurrent projection layer
 
+### Motivation:
+* Higher-level modeling of xt can help to disentangle underlying factors of variation within the input, which should then make it easier to learn temporal structure between successive time steps.
+* If factors of variation in the hidden states could be reduced, then the hidden state of the model could summarize the history of previous inputs more efficiently. In turn, this could make the output easier to predict. Reducing variation in the hidden states can be modeled by having DNN layers after the LSTM layers.
+
 ### Input 
 For each input at time `t`:
 * Input $$[x_{x-l},...,x_{t+r}]$$
