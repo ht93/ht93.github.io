@@ -21,7 +21,7 @@ We propose an extension to LSTMs that performs the recurrence in frequency as we
 * Input:
     * size: (40, 11)
     * 40: 40-dimensional log-mel filterbank feature
-    * 11: frames, 1 center frames and 5 contextual frames at left and right
+    * 11: 11 frames, 1 center frames and 5 contextual frames at left and right
 * Output:
     * 1812 tied-triphone states (senones)
 * Structure:
