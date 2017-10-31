@@ -47,7 +47,7 @@ H = Linear(1024)(H)
 * r = 0
 * Loss: cross-entropy
 * Optimizer: (distributed) asynchronous stochastic gradient descent (ASGD)
-* Initialization: Unit variance Gaussian for LSTM
+* Initialization: Unit variance Gaussian for LSTM, glorot normal/uniform for CNN and DNN
 * Learning rates: exponentially decay
 * Sequence training in larger data sets.
 
@@ -67,6 +67,3 @@ H = Linear(1024)(H)
 * Cons:
     * The paper is not very detailed like, it did not fully explain the network (multi-scale addiction and input features). This is troublesome since it did not provide code.
     * The baseline are relatively simple.
-
-
-
