@@ -12,6 +12,7 @@ We take advantage of the complementarity of CNNs, LSTMs and DNNs by combining th
 * [log-mel filterbank feature](http://haythamfayek.com/2016/04/21/speech-processing-for-machine-learning.html)
 * [LSTMP - LSTM with Recurrent Projection Layer](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/43905.pdf):  
     > By setting n_r < n_c we can increase the model memory (n_c) and still be able to control the number of parameters in the recurrent connections and output layer. n_r is the number of units in the recurrent projection layer
+* [context dependent acoustic modeling](https://stackoverflow.com/questions/37375865/what-is-context-dependent-acoustic-modeling)
 
 ### Motivation:
 * Higher-level modeling of xt can help to disentangle underlying factors of variation within the input, which should then make it easier to learn temporal structure between successive time steps.
