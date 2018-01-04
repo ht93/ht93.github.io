@@ -8,7 +8,7 @@ Code: (old version) [github](https://github.com/sk1712/gcn_metric_learning) (ten
 Published: Dec 2017
 
 ### Key Idea:
-> we propose a novel method for learning a similarity metric between irregular graphs with known node correspondences.
+> We propose to learn a graph similarity metric using a siamese graph convolutional neural network (s-GCN) in a supervised setting.
 
 ### Backgroung knowledge:
 [Siamese neural networks](https://www.quora.com/What-are-Siamese-neural-networks-what-applications-are-they-good-for-and-why) 
@@ -31,8 +31,9 @@ Published: Dec 2017
 [Check this blog](https://ht93.github.io/2017/08/13/Graph-Convolution-Basic/)
 
 ### Dataset & preprocess:
-* **Dataset**: Autism Brain Imaging Data Exchange (ABIDE)  
-* **Preprocess pipeling**: Configurable Pipeline for the Analysis of Connectomes (C-PAC)
+* **Dataset**: Autism Brain Imaging Data Exchange (ABIDE) & UK Biobank (UKB)
+* **Preprocess pipeling**: 
+  * ABIDE: Configurable Pipeline for the Analysis of Connectomes (C-PAC)
 
 <pre>
   <code class="markdown">
@@ -46,12 +47,16 @@ Published: Dec 2017
     * registration of fMRI images to standard anatomical space (MNI152)
   </code>
 </pre>
+  
+  * UKB: Miller2016
 
 * **ROI**: 
-  * Harvard Oxford (HO) atlas (R = 110 cortical and subcortical ROIs)
-  * Extract the mean time series for ROI
-  * Normalised to zero mean and unit variance.  
+  * ABIDE: Harvard Oxford (HO) atlas (R = 110 cortical and subcortical ROIs)
+    * Extract the mean time series for ROI
+    * Normalised to zero mean and unit variance. 
+  * UKB: 55 (100 spatially independent components, 55 non artefactual. Miller2016)
 * **Number**:
+  * ABIDE:
 
 <pre>
   <code class="markdown">
@@ -60,6 +65,15 @@ Published: Dec 2017
   Healthy controls: 468 
   Sites number: 20
   (from different imaging sites, 871 met the imaging quality and phenotypic information criteria)
+  </code>
+</pre>
+  
+  * UKB:
+<pre>
+  <code class="markdown">
+  Subjects number: N = 2500
+  Male: 1181 
+  Female: 1319 
   </code>
 </pre>
 
