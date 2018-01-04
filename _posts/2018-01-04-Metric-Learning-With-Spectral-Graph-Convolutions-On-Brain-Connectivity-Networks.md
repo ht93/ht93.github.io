@@ -69,6 +69,7 @@ Published: Dec 2017
 </pre>
   
   * UKB:
+  
 <pre>
   <code class="markdown">
   Subjects number: N = 2500
@@ -83,9 +84,9 @@ Published: Dec 2017
     * **Vertex**: Each ROI is represent by a node $$\mathcal{v}_i\in\mathcal{V}$$
     * **Input feature**: for each ROI, the input feature is the corresponding row of correlation matrix for that ROI.
     * **Edge & weight**: 
-        * In **their paper**, they claim that they use $$e_{ij}=d(v_i,v_j)=\sqrt{\|v_i-v_j\|^2}$$ for weight
-        * In **their code**, they used $$W_{ij} = \begin{cases} \exp(-\frac{[dist(i,j)]^2}{2\theta^2}), & \text{if $dist(i,j)\le\mathcal{k}$} \\ 0, & \text{otherwise} \end{cases}$$ for weight ($$\theta, \mathcal{k}$$ are some parameters)
-        * The edge is determined by k-NN (k-nearest neighbors).
+        * Type 1: Spatial distance as graph $$e_{ij}=d(v_i,v_j)=\sqrt{\|v_i-v_j\|^2}$$ for weight
+        * Type 2: mean functional connectivity as graph
+        * The edge is determined by k-NN (k-nearest neighbors). k=10
 * **Network Structure**:
     1. **CNN**:
         1. 2 layers with 64 features (shared in Siamese network)
@@ -93,25 +94,26 @@ Published: Dec 2017
     2. **FC**:
         1. One output with Sigmoid activation $${\displaystyle S(x)={\frac {1}{1+e^{-x}}}={\frac {e^{x}}{e^{x}+1}}.}$$
         2. A binary feature is introduced at the FC layer indicating whether the subject pair were scanned at the same site or not.
-        3. Dropout 0.2 on FC
+        3. Dropout 0.2/0.5 (ABIDE/UKB) on FC
 * **Loss function**:
+  * global loss:  
+  $$J^g=(\sigma^{2+}+\sigma^{2-})+\lambda max(0,m-(\mu^+-\mu^-))$$
 
-$$J^g=(\sigma^{2+}+\sigma^{2-})+\lambda max(0,m-(\mu^+-\mu^-))$$
-
-It maximises the mean similarity $$\mu^+$$ between embeddings belonging to the same class, minimises the mean similarity between embeddings belonging to different classes $$\mu^-$$. And minimises the variance of pairwise similarities for both matching $$\sigma^{2+}$$ and non-matching $$\sigma^{2-}$$ pairs of graphs.  
+  It maximises the mean similarity $$\mu^+$$ between embeddings belonging to the same class, minimises the mean similarity between embeddings belonging to different classes $$\mu^-$$. And minimises the variance of pairwise similarities for both matching $$\sigma^{2+}$$ and non-matching $$\sigma^{2-}$$ pairs of graphs.  
+  * constrained variance loss:  
+  $$J^g=max(0,\sigma^{2+}-a)+max(0,\sigma^{2-}-a)+\lambda max(0,m-(\mu^+-\mu^-))$$
+  Compare to global loss, it add a threshold a to the variance.
+  
 * **Network detail**:
-    * **Adam optimizer**: 0.001 learning rate and 0.005 regularization
-    * **Loss function**: margin m=0.6, weight lambda=0.35
+    * **Adam optimizer**: 0.001 learning rate and 0.0005/0.05 (ABIDE/UKB) regularization
+    * **Loss function**: margin m=1.0, weight lambda=1.0, a=m/2
     * **mini-batch**: 200
 * **Train and test**: 
+  * ABIDE:
     1. 871 total, 720 train, 151 test.
     2. train form 21802 matching and 21398 non-matching graph pairs. test form  5631 matching and 5694 non-matching.
     3. all graphs are fed to the network the same number of times to avoid biases.
     4. subjects from all 20 sites are included in both training and test sets
-
-### Results:
-In order to demonstrate the learned metric's ability to facilitate a subject classification task (ASD vs control), we use a simple
-k-nn classifier with k = 3 based the estimated distances. Improvement in classification scores reaches 11.9% on the total test set and up to 40% for individual sites (Compared with PCA/Euclidean distance).
-
-### Personal thought:
-* What is the point of Siamese network? Why not just a classifier with GCN and FC (or maybe the performance is not good in this way?)?
+  * UKB:
+    1. 5 fold cross validation
+    2. 2500 total, 2000 train, 500 test
