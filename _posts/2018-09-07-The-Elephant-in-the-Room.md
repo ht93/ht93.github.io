@@ -32,7 +32,7 @@ an object from one image in a new location of another image
   * Randomly select a object in J "transplant" to a series of location $$t_x, t_y$$ in image I
   * Dectect result: $$D_{x,y}$$ with bounding box coordinates, detection score and object category
   * Confidently detected object classes: $$C_{x,y}$$
-* Matching Detections: $$C_{x,y}\\C_{\null}$$
+* Matching Detections: $$\vert C_{x,y}\setminus C_{\null}\vert$$
 
 
 ### Dataset & preprocess:
