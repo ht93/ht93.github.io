@@ -15,21 +15,25 @@ Object transplanting
 > putting (“transplanting”)
 an object from one image in a new location of another image
 
-[Degree matrix or diagonal degree matrix](https://en.wikipedia.org/wiki/Degree_matrix)
->  The degree matrix is a diagonal matrix which contains information about the degree of each vertex—that is, the number of edges attached to each vertex.
+### Experiment 1:
+* Using state-of-the-art object detection method (Faster-RCNN [9] with a NASNet backbone [20])
+* Image of a living-room from the Microsoft COCO object detection benchmark
+* Transplant "elephant" (refer as T) into this image at various locations
+* several interesting phenomena
+  1. Detection is not stable: the object may occasionaly become undetected or be detected with sharp changes in confidence
+  2. The reported identity of the object T is not consistent (chair in 1,f): the object may be detected as a variety of different classes depending on location
+  3. The object causes non-local effects: objects nonoverlapping with T can switch identity, boundingbox, or disappear altogether.
 
-[Adjacency matrix](https://en.wikipedia.org/wiki/Adjacency_matrix)
->  An adjacency matrix is a square matrix used to represent a finite graph. The elements of the matrix indicate whether pairs of vertices are adjacent or not in the graph.
+### Detailed Analysis of these 3 findings:
+* Dataset: 2017 version of the MS-COCO dataset
+* Models: models from the Tensorflow Object Detection API (Table II)
+* Test Image Generation: picking a random pair of images I, J and transplanting a random object from the image J into image I
+  * Randomly pick image J $$\ne$$ I
+  * Randomly select a object in J "transplant" to a series of location $$t_x, t_y$$ in image I
+  * Dectect result: $$D_{x,y}$$ with bounding box coordinates, detection score and object category
+  * Confidently detected object classes: $$C_{x,y}$$
+* Matching Detections: $$C_{x,y}\\C_{\null}$$
 
-[Laplacian matrix / Symmetric normalized Laplacian](https://en.wikipedia.org/wiki/Laplacian_matrix#Symmetric_normalized_Laplacian)  
-> ![](https://wikimedia.org/api/rest_v1/media/math/render/svg/f9007674eecb50de92fe6aadceee5df23c834b66)  
-![](https://wikimedia.org/api/rest_v1/media/math/render/svg/4ab36f74a92195f5be3814f444442270977b1f11)
-
-[Chebyshev polynomials of the first kind](https://en.wikipedia.org/wiki/Chebyshev_polynomials#Definition)
-> ![](https://wikimedia.org/api/rest_v1/media/math/render/svg/126bc21a36f58717c757e943d05a04d0091feeb2)
-
-### Methodology:
-[Check this blog](https://ht93.github.io/2017/08/13/Graph-Convolution-Basic/)
 
 ### Dataset & preprocess:
 * **Dataset**: Autism Brain Imaging Data Exchange (ABIDE) & UK Biobank (UKB)
